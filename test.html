@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div>
+        <p><strong>Example data returned.</strong></p>
+    </div>
+    <div>
+        <div id="pid">Nothing.</div>
+        <button type="button" onclick="go()">Click me.</button>
+    </div>
+</body>
+<script>
+    function go(){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("pid").innerHTML =
+                this.responseText;
+            }
+        };
+        xhttp.open("GET", "https://www.youtube.com", true);
+        xhttp.send();
+    }
+</script>
